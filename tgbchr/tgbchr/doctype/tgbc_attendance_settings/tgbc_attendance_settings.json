@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "creation": "2026-08-12 12:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "work_timings_section",
+  "shift_start",
+  "grace_end",
+  "late_window_end",
+  "column_break_wt",
+  "shift_end",
+  "working_days",
+  "late_policy_section",
+  "allowed_late_per_month",
+  "permission_section",
+  "permission_hours",
+  "permission_per_month",
+  "policy_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "work_timings_section",
+   "fieldtype": "Section Break",
+   "label": "Work Timings"
+  },
+  {
+   "default": "09:30:00",
+   "description": "Employees must log in by this time",
+   "fieldname": "shift_start",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Shift Start",
+   "reqd": 1
+  },
+  {
+   "default": "09:40:00",
+   "description": "Daily grace period end (10 minutes)",
+   "fieldname": "grace_end",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Grace End",
+   "reqd": 1
+  },
+  {
+   "default": "10:00:00",
+   "description": "Late window end; after this = half day",
+   "fieldname": "late_window_end",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Late Window End",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "18:00:00",
+   "fieldname": "shift_end",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Shift End",
+   "reqd": 1
+  },
+  {
+   "default": "Monday to Saturday",
+   "fieldname": "working_days",
+   "fieldtype": "Data",
+   "label": "Working Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "late_policy_section",
+   "fieldtype": "Section Break",
+   "label": "Late Arrival Policy"
+  },
+  {
+   "default": "3",
+   "description": "Allowed late logins per month between Grace End and Late Window End",
+   "fieldname": "allowed_late_per_month",
+   "fieldtype": "Int",
+   "label": "Allowed Late Logins / Month",
+   "reqd": 1
+  },
+  {
+   "fieldname": "permission_section",
+   "fieldtype": "Section Break",
+   "label": "Permission Policy"
+  },
+  {
+   "default": "2",
+   "fieldname": "permission_hours",
+   "fieldtype": "Float",
+   "label": "Hours per Permission",
+   "reqd": 1
+  },
+  {
+   "default": "2",
+   "fieldname": "permission_per_month",
+   "fieldtype": "Int",
+   "label": "Permissions Allowed / Month",
+   "reqd": 1
+  },
+  {
+   "default": "Casual, Sick and Earned Leaves cannot be adjusted for late arrivals.\n2-hour permission requires prior HOD approval (1 day advance). Cannot be combined or used consecutively.",
+   "fieldname": "policy_notes",
+   "fieldtype": "Small Text",
+   "label": "Policy Notes"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-08-20 09:32:40.234166",
+ "modified_by": "obaid@easycloud.in",
+ "module": "tgbchr",
+ "name": "TGBC Attendance Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "HR Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

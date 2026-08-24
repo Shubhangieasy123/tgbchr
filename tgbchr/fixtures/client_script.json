@@ -1,0 +1,35 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Employee Checkin",
+  "enabled": 1,
+  "modified": "2025-03-10 11:45:04.907862",
+  "module": "tgbchr",
+  "name": "Get Employee CheckIn",
+  "script": "frappe.ui.form.on('Employee Checkin', {\n    refresh(frm) {\n        frm.add_custom_button(\"Get Employyee checkIn Data\", () => {\n            frappe.call({\n                method: \"tgbchr.api.process_raw_attendance\",\n                args: {},\n                callback: function(response) {\n                    if (response.message) {\n                      \n                        frappe.msgprint(response.message);\n                    } else {\n                        frappe.msgprint(__('No data received from the server'));\n                    }\n                },\n                error: function(error) {\n                    frappe.msgprint(__('Error occurred while fetching data: ') + error.message);\n                }\n            });\n        }).addClass(\"btn-warning\").css({\"background-color\": \"#171717\", \"color\": \"white\"});\n    },\n})\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Raw Attendance Data",
+  "enabled": 1,
+  "modified": "2025-03-10 11:49:23.861421",
+  "module": "tgbchr",
+  "name": "Get Biometric Attendance Data",
+  "script": "frappe.ui.form.on('Raw Attendance Data', {\n    refresh(frm) {\n        frm.add_custom_button(\"Get Attendance Data\", () => {\n            frappe.call({\n                method: \"tgbchr.api.get_and_update_attendance\",\n                args: {},\n                callback: function(response) {\n                    if (response.message) {\n                      \n                        frappe.msgprint(response.message);\n                    } else {\n                        frappe.msgprint(__('No data received from the server'));\n                    }\n                },\n                error: function(error) {\n                    frappe.msgprint(__('Error occurred while fetching data: ') + error.message);\n                }\n            });\n        }).addClass(\"btn-warning\").css({\"background-color\": \"#171717\", \"color\": \"white\"});\n    },\n})\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Attendance Request",
+  "enabled": 1,
+  "modified": "2025-12-12 13:30:53.501956",
+  "module": "tgbchr",
+  "name": "Employer's Approval",
+  "script": "frappe.ui.form.on('Attendance Request', {\r\n    before_submit: function(frm) {\r\n        const user = frappe.session.user;\r\n        const approver = frm.doc.custom_employers_approver;\r\n\r\n        if (user !== approver) {\r\n            frappe.msgprint(\"This request must be submitted by your designated approver. Kindly contact your approver for submission.\");\r\n            frappe.validated = false;   // stop submit\r\n        }\r\n    }\r\n});\r\n",
+  "view": "Form"
+ }
+]
