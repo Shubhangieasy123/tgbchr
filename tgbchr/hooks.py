@@ -44,6 +44,11 @@ doc_events = {
 		"on_submit": "tgbchr.attendance_hooks.on_attendance_request_submit",
 		"on_cancel": "tgbchr.attendance_hooks.on_attendance_request_cancel",
 	},
+	"Leave Application": {
+    "validate": "tgbchr.public.leave_application.validate_leave_application",
+    "before_save": "tgbchr.public.leave_application.validate_workflow_approver",
+    "on_update": "tgbchr.public.leave_application.handle_workflow_update"
+	}
 }
 
 doctype_js = {

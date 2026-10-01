@@ -98,7 +98,6 @@
    "reqd": 1
   },
   {
-   "description": "HOD who must approve at least 1 day in advance",
    "fieldname": "hod_approver",
    "fieldtype": "Link",
    "label": "HOD Approver",
@@ -106,7 +105,6 @@
    "reqd": 1
   },
   {
-   "allow_on_submit": 1,
    "default": "Draft",
    "fieldname": "status",
    "fieldtype": "Select",
@@ -114,7 +112,7 @@
    "in_standard_filter": 1,
    "label": "Status",
    "options": "Draft\nPending Approval\nApproved\nRejected\nCancelled",
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -128,8 +126,8 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-20 09:32:39.962340",
- "modified_by": "obaid@easycloud.in",
+ "modified": "2026-09-24 18:26:02.943147",
+ "modified_by": "kowshu0239@gmail.com",
  "module": "tgbchr",
  "name": "Employee Permission Request",
  "naming_rule": "By \"Naming Series\" field",
