@@ -115,7 +115,7 @@ def handle_workflow_update(doc, method):
 	# --------------------------------------------------------
 
 	if (
-		old_state == "draft"
+		old_state == "Draft"
 		and new_state == "Pending for HOD approval"
 	):
 

@@ -57,7 +57,7 @@ class EmployeePermissionRequest(Document):
 		# ------------------------------------------------------------
 
 		if (
-			old_state == "draft"
+			old_state == "Draft"
 			and new_state == "Pending for HOD approval"
 		):
 
