@@ -43,6 +43,8 @@ doc_events = {
 	"Attendance Request": {
 		"on_submit": "tgbchr.attendance_hooks.on_attendance_request_submit",
 		"on_cancel": "tgbchr.attendance_hooks.on_attendance_request_cancel",
+		"validate": "tgbchr.public.attendance_request.validate_workflow_approver",
+    	"on_update": "tgbchr.public.attendance_request.handle_workflow_update"
 	},
 	"Leave Application": {
     "validate": "tgbchr.public.leave_application.validate_leave_application",
